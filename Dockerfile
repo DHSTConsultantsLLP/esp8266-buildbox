@@ -31,10 +31,10 @@ RUN useradd -s /bin/zsh -m esp8266 && \
     chmod 0440 /etc/sudoers.d/esp8266
 
 USER esp8266
-ENV HOME /data
+ENV HOME /home/esp8266
 WORKDIR $HOME
 RUN echo $HOME
-RUN git clone https://github.com/pfalcon/esp-open-sdk.git --recursive
+RUN cd $HOME && git clone https://github.com/pfalcon/esp-open-sdk.git --recursive
 WORKDIR esp-open-sdk
 RUN make STANDALONE=n
 ENV PATH=$PATH:$HOME/esp-open-sdk/xtensa-lx106-elf/bin
