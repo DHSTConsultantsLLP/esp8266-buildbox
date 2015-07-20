@@ -36,7 +36,7 @@ WORKDIR $HOME
 RUN echo $HOME
 RUN cd $HOME && git clone https://github.com/pfalcon/esp-open-sdk.git --recursive
 WORKDIR esp-open-sdk
-RUN make STANDALONE=n
+RUN cd $HOME/esp-open-sdk && make STANDALONE=n
 ENV PATH=$PATH:$HOME/esp-open-sdk/xtensa-lx106-elf/bin
 ENV ESP_OPEN_SDK=$HOME/esp-open-sdk
 ENV CPATH=$ESP_OPEN_SDK/sdk/include
