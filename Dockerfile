@@ -46,7 +46,7 @@ WORKDIR $HOME
 
 RUN git clone https://github.com/tommie/esptool-ck.git
 WORKDIR esptool-ck
-RUN make
+RUN cd $HOME/esptool-ck && make
 ENV PATH $PATH:$HOME/esptool-ck
 
 WORKDIR $HOME
