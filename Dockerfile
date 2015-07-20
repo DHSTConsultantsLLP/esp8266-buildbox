@@ -37,17 +37,17 @@ RUN echo $HOME
 RUN cd $HOME && git clone https://github.com/pfalcon/esp-open-sdk.git --recursive
 WORKDIR esp-open-sdk
 RUN cd $HOME/esp-open-sdk && make STANDALONE=n
-ENV PATH=$PATH:$HOME/esp-open-sdk/xtensa-lx106-elf/bin
-ENV ESP_OPEN_SDK=$HOME/esp-open-sdk
-ENV CPATH=$ESP_OPEN_SDK/sdk/include
-ENV LD_LIBRARY_PATH=$ESP_OPEN_SDK/sdk/lib
+ENV PATH $PATH:$HOME/esp-open-sdk/xtensa-lx106-elf/bin
+ENV ESP_OPEN_SDK $HOME/esp-open-sdk
+ENV CPATH $ESP_OPEN_SDK/sdk/include
+ENV LD_LIBRARY_PATH $ESP_OPEN_SDK/sdk/lib
 
 WORKDIR $HOME
 
 RUN git clone https://github.com/tommie/esptool-ck.git
 WORKDIR esptool-ck
 RUN make
-ENV PATH=$PATH:$HOME/esptool-ck
+ENV PATH $PATH:$HOME/esptool-ck
 
 WORKDIR $HOME
 RUN git clone https://github.com/robbyrussell/oh-my-zsh.git .oh-my-zsh
